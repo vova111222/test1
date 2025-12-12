@@ -1,0 +1,308 @@
+/* ============================================
+   ПЗМ Завод Комплектации - Стили уведомлений
+   Версия 1.0 - Полный комплект
+   ============================================ */
+
+/* Базовые стили уведомлений */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 15px 20px;
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 9999;
+    transform: translateX(150%);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* Типы уведомлений */
+.notification-success {
+    border-left-color: #38a169;
+    background: linear-gradient(90deg, #f0fff4, white);
+}
+
+.notification-error {
+    border-left-color: #e53e3e;
+    background: linear-gradient(90deg, #fff5f5, white);
+}
+
+.notification-warning {
+    border-left-color: #d69e2e;
+    background: linear-gradient(90deg, #fffaf0, white);
+}
+
+.notification-info {
+    border-left-color: #3182ce;
+    background: linear-gradient(90deg, #ebf8ff, white);
+}
+
+/* Контент уведомления */
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.notification-content i {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.notification-success .notification-content i {
+    color: #38a169;
+}
+
+.notification-error .notification-content i {
+    color: #e53e3e;
+}
+
+.notification-warning .notification-content i {
+    color: #d69e2e;
+}
+
+.notification-info .notification-content i {
+    color: #3182ce;
+}
+
+.notification-content span {
+    color: #2d3748;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Кнопка закрытия */
+.notification-close {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    background: #f7fafc;
+    color: #718096;
+}
+
+/* Прогресс-бар для авто-закрытия */
+.notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--primary-color);
+    width: 100%;
+    transform-origin: left;
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Группа уведомлений */
+.notification-stack {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+/* Уведомления в формах */
+.form-notification {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.form-notification.success {
+    background: #f0fff4;
+    border-color: #9ae6b4;
+    color: #276749;
+}
+
+.form-notification.error {
+    background: #fff5f5;
+    border-color: #fc8181;
+    color: #c53030;
+}
+
+/* Toast-уведомления (маленькие) */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2d3748;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    z-index: 9998;
+    animation: fadeInUp 0.3s, fadeOutDown 0.3s 2.7s forwards;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .notification {
+        left: 20px;
+        right: 20px;
+        min-width: auto;
+        max-width: none;
+        transform: translateY(-150%);
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .notification {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .notification-content span {
+        color: #e2e8f0;
+    }
+    
+    .notification-close {
+        color: #a0aec0;
+    }
+    
+    .notification-close:hover {
+        background: #4a5568;
+        color: #cbd5e0;
+    }
+}
+
+/* Анимация для иконок уведомлений */
+.notification-content i {
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Специальные уведомления */
+.notification-promo {
+    background: linear-gradient(135deg, #ed8936, #dd6b20);
+    color: white;
+    border-left-color: #c05621;
+}
+
+.notification-promo .notification-content span {
+    color: white;
+}
+
+.notification-promo .notification-close {
+    color: rgba(255,255,255,0.8);
+}
+
+.notification-promo .notification-close:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}

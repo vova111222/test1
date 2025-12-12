@@ -1,0 +1,946 @@
+/* ============================================
+   ПЗМ Завод Комплектации - Основные стили
+   Версия 1.0 - Полный комплект
+   ============================================ */
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ed8936;
+    --primary-dark: #dd6b20;
+    --secondary-color: #2d3748;
+    --text-color: #4a5568;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --success: #38a169;
+    --shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+.header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.company-name {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-link {
+    width: 36px;
+    height: 36px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.icon-link:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.phone-number {
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Герой-баннер */
+.hero {
+    position: relative;
+    height: 500px;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Кнопки */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(237, 137, 54, 0.3);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Секции */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 50px;
+}
+
+/* Каталог на главной */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    height: 200px;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* О компании */
+.about {
+    background: var(--light-bg);
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-header h2 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.about-video {
+    grid-column: span 2;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.video-container {
+    aspect-ratio: 16/9;
+    background: var(--light-bg);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.video-placeholder {
+    text-align: center;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.about-photos {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.photo-item {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.photo-placeholder {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.photo-caption {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+/* Преимущества */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.advantage-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.advantage-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Как мы работаем */
+.work-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.work-step {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.work-step:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.work-step h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.step-content {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+    background: var(--light-bg);
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.step-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Отзывы */
+.reviews-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.review-author {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.review-author strong {
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Галерея проектов */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.project-item {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.project-image {
+    height: 200px;
+    background: var(--light-bg);
+    position: relative;
+}
+
+.image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-color);
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.project-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-specs {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.spec {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.spec i {
+    color: var(--primary-color);
+}
+
+.project-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-more, .btn-whatsapp {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-more {
+    background: var(--light-bg);
+    color: var(--text-color);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-more:hover {
+    background: var(--border-color);
+}
+
+.btn-whatsapp:hover {
+    background: #1da851;
+}
+
+/* Контакты и карта */
+.final-contacts-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.final-contacts {
+    padding: 30px;
+}
+
+.contact-items-final {
+    margin-bottom: 30px;
+}
+
+.contact-item-final {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-item-final i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+.contact-text strong {
+    display: block;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.contact-text a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.contact-text a:hover {
+    color: var(--primary-color);
+}
+
+.quick-actions-final {
+    margin-top: 30px;
+}
+
+.action-buttons-final {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-btn-call, .action-btn-whatsapp, .action-btn-email {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.action-btn-call {
+    background: var(--primary-color);
+    color: white;
+}
+
+.action-btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.action-btn-email {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.action-btn-call:hover, .action-btn-whatsapp:hover, .action-btn-email:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.final-map-column {
+    position: relative;
+}
+
+.final-map-container {
+    height: 400px;
+    position: relative;
+}
+
+.final-yamap {
+    width: 100%;
+    height: 100%;
+}
+
+.map-loading-final {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-color);
+}
+
+.map-actions-final {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Подвал */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-logo .logo {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+}
+
+.footer-logo .company-name {
+    color: white;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+
+.footer-contacts .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-contacts .contact-item i {
+    color: var(--primary-color);
+}
+
+.footer-contacts .contact-item a {
+    color: #cbd5e0;
+    text-decoration: none;
+}
+
+.footer-contacts .contact-item a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #4a5568;
+    color: #cbd5e0;
+}
+
+/* Модальные окна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.modal h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-form input,
+.order-form textarea {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.order-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .header-contacts {
+        align-items: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-video, .about-photos {
+        grid-column: span 1;
+    }
+    
+    .about-photos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .final-contacts-map {
+        grid-template-columns: 1fr;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-actions {
+        flex-direction: column;
+    }
+    
+    .action-buttons-final {
+        flex-direction: column;
+    }
+    
+    .work-steps {
+        grid-template-columns: 1fr;
+    }
+}
